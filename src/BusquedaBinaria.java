@@ -22,15 +22,24 @@ public class BusquedaBinaria {
         int alto = personas.length -1;
 
         while(bajo<=alto){
+            System.out.println();
+            for(int i=bajo; i<=alto; i++){
+                System.out.print(personas[i].getEdad() + " | ");
+            }
+            System.out.println();
             int central = (bajo+alto)/2;
-
-            if(personas[central].getEdad() == age){
+            int valorCentral = personas[central].getEdad();
+            if(valorCentral == age){
+                System.out.print("bajo="+bajo+ "  alto="+alto+ "  central="+central + "  valorCentral="+valorCentral + "    ENCONTRADO");
+                System.out.println();
                 return central;
-            } 
-            
-            if(personas[central].getEdad() > age){
+            }else if(valorCentral < age){
+                System.out.print("bajo="+bajo+ "  alto="+alto+ "  central="+central + "  valorCentral="+valorCentral + "    DERECHA");
+                System.out.println();
                 bajo = central + 1;
-            } else {
+            }else{
+                System.out.print("bajo="+bajo+ "  alto="+alto+ "  central="+central + "  valorCentral="+valorCentral + "    IZQUIERDA");
+                System.out.println();
                 alto = central - 1;
             }
         }
